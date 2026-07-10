@@ -1,0 +1,11 @@
+;; Real-world organization location / contact.
+;; :head-role is institutional title only — no personal names.
+{:ooyake-id "gov.ecu"
+  :official-url "http://www.presidencia.gob.ec/"
+  :name-en "Ecuador"
+  :wikidata "Q736"
+  :head-role-note "institutional office title only; personal names of current office-holders are intentionally NOT stored"
+  :contact-page "https://www.wikidata.org/wiki/Q2900"
+  :sourced-from "com-etzhayyim-ooyake gov-units (verbatim where present)"
+  :hq {:line-en "Quito" :country "ecu" :kind "capital" :provenance "https://www.wikidata.org/wiki/Q2900" :last-verified "2026-06-04" :sourcing "authoritative"}
+}
