@@ -1,0 +1,33 @@
+;; data/datascript-tx.edn — DataScript tx-data derived from src/statute/facts.cljc
+;; `statute.facts/catalog` (ADR-2607141700 Wave 0). Same shape as sibling files.
+
+[#:statute{:id "ecu.ley-companias-ro312"
+           :title "Ley de Compañías"
+           :jurisdiction "ECU"
+           :kind :law
+           :law-number "Registro Oficial N.º 312"
+           :url "https://www.gob.ec/regulaciones/ley-companias"
+           :url-provenance :official-gob-ec
+           :enacted-date "1999-11-05"
+           :retrieved-at "2026-07-16"
+           :topic [:corporate-governance :incorporation]}
+ #:statute{:id "ecu.ley-organica-proteccion-datos-personales-ro459"
+           :title "Ley Orgánica de Protección de Datos Personales"
+           :jurisdiction "ECU"
+           :kind :law
+           :law-number "Registro Oficial N.º 459"
+           :url "https://www.gob.ec/regulaciones/ley-organica-proteccion-datos-personales"
+           :url-provenance :official-gob-ec
+           :enacted-date "2021-05-26"
+           :retrieved-at "2026-07-16"
+           :topic [:data-protection :privacy]}
+ #:statute{:id "ecu.codigo-trabajo-ro167"
+           :title "Código de Trabajo"
+           :jurisdiction "ECU"
+           :kind :law
+           :law-number "Registro Oficial N.º 167"
+           :url "https://www.gob.ec/regulaciones/codigo-trabajo"
+           :url-provenance :official-gob-ec
+           :enacted-date "2005-12-16"
+           :retrieved-at "2026-07-16"
+           :topic [:labor :employment]}]
