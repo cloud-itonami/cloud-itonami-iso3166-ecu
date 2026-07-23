@@ -7,4 +7,46 @@
  :itonami.blueprint/governor :market-entry-compliance-governor
  :itonami.blueprint/robotics false
  :itonami.blueprint/required-technologies [:identity :forms :dmn :bpmn :audit-ledger]
- :itonami.blueprint/status :public-oss}
+ :itonami.blueprint/status :public-oss
+ :itonami.blueprint/maturity :implemented
+ :itonami.blueprint/implemented-slice
+ "src/marketentry/* (langgraph-clj StateGraph actor, compiled via
+ `operation/build` -> `g/state-graph` -> `g/compile-graph` with
+ `interrupt-before #{:request-approval}`): facts.cljc (official
+ spec-basis catalog -- SCVS company-oversight authority, SRI RUC tax
+ registration, SERCOP/LOSNCP procurement regulation, SOCE e-procurement
+ portal with its three distinct provider-registration tracks --
+ national, foreign, private-sector-contractor; also encodes the
+ structural fact that SERCOP is simultaneously the regulator AND the
+ SOCE platform operator, unlike the US GSA/FAR-Council split),
+ governor.cljc (Market-Entry Compliance Governor -- spec-basis HARD
+ check, evidence-incomplete HARD check, `:legal-rep-change-unapproved`
+ HARD check independently verifying `:legal-rep-change-approved?` when
+ `:requires-legal-rep-change?` is true -- the flagship new check for
+ this vertical, grounded in SCVS's own approval authority over company
+ legal-representative changes under the Ley de Compañías --,
+ engagement-fee-mismatch independent recompute, `:ruc-unverified` HARD
+ check (SRI RUC tax registration), confidence-floor/actuation gate,
+ plus double-draft/double-submit guards), store.cljc (MemStore +
+ DatomicStore via `io.github.kotoba-lang/langchain-store`
+ (`ls/enc`/`ls/dec*`/`ls/read-stream`/`ls/append-blob!`) instead of a
+ hand-rolled EDN-blob codec), registry.cljc (pure-function
+ filing-draft/filing-submit record construction + fee recompute),
+ marketentryllm.cljc (mock MarketEntry Advisor), operation.cljc
+ (intake -> advise -> govern -> decide ->
+ [request-approval ->] commit/hold StateGraph, `store/append-ledger!`
+ called from both the `:commit` and `:hold` nodes), phase.cljc (0->3
+ rollout, `:filing/draft`/`:filing/submit` permanently excluded from
+ every phase's `:auto` set), sim.cljc (demo driver, `clojure
+ -M:dev:run`). Every spec-basis fact is limited to the 4
+ independently-verified sources for this vertical (SCVS, SRI, SERCOP/
+ LOSNCP, SOCE) -- no foreign-investment-registry claim, no specific Ley
+ de Compañías Registro Oficial number, and no conflation of SCVS with
+ the separate municipal Registro Mercantil or the notarial
+ incorporation step (all explicitly out of scope this session per
+ unverifiable/unreachable sources). 41 tests / 134 assertions passing
+ (governor contract + store parity + facts + phase + registry, plus
+ this repo's separate pre-existing `statute` and `culture` domain
+ namespaces, left untouched), clj-kondo clean (0 errors, 6 non-fatal
+ unused-binding/unused-require warnings, all pre-existing-pattern and
+ unrelated to correctness)."}
