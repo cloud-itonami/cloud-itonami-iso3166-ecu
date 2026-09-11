@@ -43,7 +43,7 @@ SERCOP is SIMULTANEOUSLY the procurement regulator (LOSNCP) AND the
 SOCE e-procurement platform operator. `marketentry.facts/
 platform-operator-spec-basis` exposes this so no proposal ever invents
 a separate "Ecuador procurement platform operator" entity distinct
-from SERCOP; see `test/marketentry/facts_test.clj`'s
+from SERCOP; see `test/marketentry/facts_test.cljk`'s
 `sercop-is-simultaneously-regulator-and-platform-operator`.
 
 SOCE also runs SEPARATE registration tracks for national providers,
@@ -64,8 +64,8 @@ independent layers enforce this:
 - `marketentry.phase`'s phase table (`phase 0` through `phase 3`)
   never puts `:filing/draft` or `:filing/submit` in any phase's
   `:auto` set -- see `marketentry.phase`'s own docstring and
-  `test/marketentry/phase_test.clj`'s `filing-submit-never-auto`, plus
-  `test/marketentry/governor_contract_test.clj`'s
+  `test/marketentry/phase_test.cljk`'s `filing-submit-never-auto`, plus
+  `test/marketentry/governor_contract_test.cljk`'s
   `filing-draft-and-submit-never-auto-commit`.
 
 The actor may intake an engagement, assess a jurisdiction and draft a
@@ -179,9 +179,9 @@ as the other `cloud-itonami-iso3166-*` siblings:
   in a specific regulator's own approval authority over ONE corporate
   event (legal-representative change), independently re-verified rather
   than trusted from the engagement's own claim (see the namespace
-  docstrings and `test/marketentry/governor_contract_test.clj`'s
+  docstrings and `test/marketentry/governor_contract_test.cljk`'s
   `legal-rep-change-unapproved-is-held-and-unoverridable`).
-- `src/statute/facts.cljc` -- general-law catalog (pre-existing, not
+- `src/statute/facts.cljk` -- general-law catalog (pre-existing, not
   modified by this Wave): Ley de Compañías (R.O. 312), Ley Orgánica de
   Protección de Datos Personales (R.O. 459), and Código de Trabajo
   (R.O. 167), all cited via official gob.ec.
@@ -202,7 +202,7 @@ Alongside the market-entry / statute catalogs, this repo carries a
 `com-junkawasaki/root`) — national dishes, protected products, beverages,
 crafts, festivals and heritage sites for Ecuador:
 
-- `src/culture/facts.cljc` — the catalog, source of truth (keyed by
+- `src/culture/facts.cljk` — the catalog, source of truth (keyed by
   uppercase ISO3, mirroring `statute.facts`).
 - `schema/culture.edn` — DataScript schema.
 - `data/culture-tx.edn` — derived DataScript tx-data (regenerated from
